@@ -1,0 +1,23 @@
+{
+  "name": "simple-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwardzhxw/simple-websocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwardzhxw/simple-websocket/issues"
+  },
+  "homepage": "https://github.com/edwardzhxw/simple-websocket#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ws": "^5.1.1"
+  }
+}
