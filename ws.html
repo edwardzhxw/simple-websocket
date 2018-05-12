@@ -1,5 +1,6 @@
 <script>
-  var ws = new WebSocket('ws://localhost:8989');
+  var socket = 'ws://' + location.hostname + ':8989';
+  var ws = new WebSocket(socket);
   // event emmited when connected
   ws.onopen = function () {
       console.log('websocket is connected ...')
