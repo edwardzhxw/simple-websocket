@@ -1,5 +1,5 @@
 <script>
-  var socket = 'ws://' + location.hostname + ':8989';
+  var socket = 'wss://' + location.hostname + ':8989';
   var ws = new WebSocket(socket);
   // event emmited when connected
   ws.onopen = function () {
