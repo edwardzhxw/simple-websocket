@@ -7,7 +7,7 @@ const app = express();
 //initialize a simple http server
 const server = http.createServer(app);
 
-const wss = new WebSocket.Server({ port: 8989 })
+const wss = new WebSocket.Server({ server })
 
 const users = []
 

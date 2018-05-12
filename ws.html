@@ -1,6 +1,6 @@
 <script>
-  var socket = 'ws://' + location.hostname + ':8989';
-  var ws = new WebSocket(socket);
+var HOST = location.origin.replace(/^http/, 'ws')
+var ws = new WebSocket(HOST);
   // event emmited when connected
   ws.onopen = function () {
       console.log('websocket is connected ...')
