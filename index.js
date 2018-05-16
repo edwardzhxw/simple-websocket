@@ -24,9 +24,20 @@ wss.on('connection', (ws) => {
   ws.on('message', (message) => {
     const data = JSON.parse(message);
     switch (data.type) {
+      case 'LIST_USER': {
+        ws.send(JSON.stringify({
+          type: 'GET_USER_LIST',
+          users
+        }));
+        broadcast({
+          type: 'GET_USER_LIST',
+          users
+        });
+        break;
+      }
       case 'ADD_USER': {
-        index = users.length
-        users.push({ name: data.name, id: index + 1 })
+        index = users.length;
+        users.push({ name: data.name, id: index + 1 });
         ws.send(JSON.stringify({
           type: 'USERS_LIST',
           users
@@ -45,10 +56,6 @@ wss.on('connection', (ws) => {
         }, ws)
         break
       default:
-        broadcast({
-          type: 'CONNECTED111',
-          message: 'CONN'
-        }, ws);
         break
     }
   })
