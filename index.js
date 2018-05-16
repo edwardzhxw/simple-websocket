@@ -22,12 +22,9 @@ wss.on('connection', (ws) => {
   let index
   ws.on('message', (message) => {
     const data = JSON.parse(message);
+    console.log(data.type)
     switch (data.type) {
       case 'LIST_USER': {
-        ws.send(JSON.stringify({
-          type: 'GET_USER_LIST',
-          users
-        }));
         broadcast({
           type: 'GET_USER_LIST',
           users
