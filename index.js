@@ -4,7 +4,6 @@ const WebSocket = require('ws');
 
 const app = express();
 
-//initialize a simple http server
 const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server })
