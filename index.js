@@ -8,7 +8,8 @@ const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server })
 
-const users = []
+const messages = [];
+const users = [];
 
 const broadcast = (data, ws) => {
   wss.clients.forEach((client) => {
@@ -44,7 +45,17 @@ wss.on('connection', (ws) => {
         }, ws)
         break
       }
+      case 'GET_MESSAGES':
+        broadcast({
+          type: 'GET_MESSAGES',
+          messages,
+        }, ws)
+        break
       case 'ADD_MESSAGE':
+        messages.push({
+          message: data.message,
+          author: data.author
+        });
         broadcast({
           type: 'ADD_MESSAGE',
           message: data.message,
